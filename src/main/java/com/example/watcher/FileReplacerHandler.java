@@ -32,9 +32,9 @@ public class FileReplacerHandler implements EventHandler {
     public void handle(WatchKey key, WatchEvent<Path> ev, Path path) throws IOException {
         if (ev != null && ev.kind() == StandardWatchEventKinds.ENTRY_CREATE) {
             String fileToReplace = path.getFileName().toString();
-            Path replacer = this.replacements.get(fileToReplace);
+            Path replacer = this.replacements.remove(fileToReplace);
             if (replacer != null) {
-                Files.move(replacer, path, new CopyOption[] { StandardCopyOption.REPLACE_EXISTING });
+                Files.copy(replacer, path, new CopyOption[] { StandardCopyOption.REPLACE_EXISTING });
                 System.out.println(
                         "FileReplacerHandler: " + String.valueOf(path) + " replaced by " + String.valueOf(replacer));
             }
