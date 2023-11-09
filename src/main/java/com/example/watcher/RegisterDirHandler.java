@@ -30,7 +30,7 @@ public class RegisterDirHandler implements EventHandler {
         WatchKey key = newDir.register(watcher, StandardWatchEventKinds.ENTRY_CREATE,
                 StandardWatchEventKinds.ENTRY_DELETE, StandardWatchEventKinds.ENTRY_MODIFY);
         listeners.put(key, newDir);
-        System.out.println("Listening " + newDir);
+//        System.out.println("Listening " + newDir);
     }
 
     public Map<WatchKey, Path> getListeners() {

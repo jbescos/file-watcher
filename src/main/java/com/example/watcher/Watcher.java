@@ -51,7 +51,7 @@ public class Watcher {
                     WatchEvent<Path> ev = (WatchEvent<Path>) event;
                     Path filename = (Path) event.context();
                     filename = ((Path) entry.getValue()).resolve(filename);
-                    System.out.println(kind + ": " + filename);
+//                    System.out.println(kind + ": " + filename);
                     for (EventHandler eventHandler : this.handlers) {
                         eventHandler.handle((WatchKey) entry.getKey(), ev, filename);
                     }

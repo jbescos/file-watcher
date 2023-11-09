@@ -15,7 +15,7 @@ public class UnregisterHandler implements EventHandler {
     public void handle(WatchKey key, WatchEvent<Path> ev, Path path) throws IOException {
         if (key != null && !key.reset()) {
             this.unregister.add(key);
-            System.out.println("Removing listener " + String.valueOf(path));
+//            System.out.println("Removing listener " + String.valueOf(path));
         }
     }
 
